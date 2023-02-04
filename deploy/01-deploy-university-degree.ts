@@ -12,14 +12,22 @@ const deployUniversityDegree: DeployFunction = async function ({
   const { deployer } = await getNamedAccounts();
   const chainId: number = network.config.chainId!;
 
+  const degreeMaxScore = process.env.MAX_SCORE;
+  const degreeImage = process.env.IMAGE;
+  const degreeMajor = process.env.MAJOR;
+  const degreeType = process.env.TYPE;
+
+  const args = [degreeMaxScore, degreeImage, degreeMajor, degreeType];
+
   const universityDegree = await deploy("UniversityDegree", {
     from: deployer,
+    args: args,
     log: true,
     waitConfirmations: networkConfig[chainId]?.blockConfirmations || 1,
   });
 
   if (!developmentChains.includes(network.name) && process.env.ETHERSCAN_API_KEY) {
-    await verify(universityDegree.address, []);
+    await verify(universityDegree.address, args);
   }
 };
 
