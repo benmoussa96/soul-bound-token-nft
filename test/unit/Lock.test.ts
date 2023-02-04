@@ -9,7 +9,7 @@ import { UniversityDegree } from "../../typechain-types";
   : describe("UniversityDegree", async () => {
       let universityDegree: UniversityDegree, deployer: SignerWithAddress;
 
-      const name = "SoulBountNft";
+      const name = "SoulBoundToken";
       const symbol = "SBT";
 
       beforeEach(async () => {
