@@ -1,13 +1,7 @@
-# Sample Hardhat Project
+# University Degree Soul Bound Token (NFT)
 
-This project demonstrates a basic Hardhat use case. It comes with a sample contract, a test for that contract, and a script that deploys that contract.
+This repo contains a smart contract `contracts/UniversityDegree.sol` for representing a university degree as a Soul Bound NFT Token.
 
-Try running some of the following tasks:
+```
 
-```shell
-npx hardhat help
-npx hardhat test
-REPORT_GAS=true npx hardhat test
-npx hardhat node
-npx hardhat run scripts/deploy.ts
 ```
