@@ -66,8 +66,8 @@ import { UniversityDegree } from "../../typechain-types";
           const txnResponse = await universityDegree.issueDegree(student.address, score);
           const txnReceipt = await txnResponse.wait(1);
 
-          const isDegreeIssued = await universityDegree.issuedDegrees(student.address);
-          const studentScore = await universityDegree.personToScore(student.address);
+          const isDegreeIssued = await universityDegree.isStudentDegreeIssued(student.address);
+          const studentScore = await universityDegree.checkScoreOfStudent(student.address);
           expect(isDegreeIssued).to.be.true;
           expect(studentScore).to.equal(score);
         });
