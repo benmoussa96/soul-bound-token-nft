@@ -26,11 +26,11 @@ contract UniversityDegree is ERC721URIStorage {
     Counters.Counter private _tokenIds;
 
     // Degree Variables:
-    address private immutable i_owner; // Issuer of the degrees
-    uint256 internal s_degreeMaxScore; // Maximum score of the degree
-    string internal s_degreeImage; // Image of the degree hosted ob IPFS
+    address private immutable i_owner; // Issuer of the degrees (the university)
+    uint256 internal s_degreeMaxScore; // Maximum score of the degree (usualy /20)
+    string internal s_degreeImage; // Image of the degree hosted on IPFS
     string internal s_degreeMajor; // Major of the degree
-    string internal s_degreeType; // Type of the degree
+    string internal s_degreeType; // Type of the degree (bachelor, masters, etc)
     mapping(address => bool) internal s_issuedDegrees;
     mapping(address => uint256) internal s_personToScore;
     mapping(address => string) internal s_personToDegree;
