@@ -1,0 +1,19 @@
+{
+  "image": "https://ipfs.io/ipfs/QmWDe3t8gb9ySJjPVaGQBFNXWmF4WgF4Bjnx9wKGfRxRzU",
+  "description": "An award conferred by a college or university signifying that the recipient has satisfactorily completed a course of study",
+  "attributes": [
+    {
+      "trait type": "Score",
+      "value": 16,
+      "max_value": 20
+    },
+    {
+      "trait_type": "Major",
+      "value": "Master Of Business Administration"
+    },
+    {
+      "trait_type": "Type of degree",
+      "value": "Bachelor's degree"
+    }
+  ]
+}
