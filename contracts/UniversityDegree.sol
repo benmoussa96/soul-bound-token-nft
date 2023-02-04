@@ -35,6 +35,11 @@ contract UniversityDegree is ERC721URIStorage {
     mapping(address => uint256) internal s_studentToScore;
     mapping(address => string) internal s_studentToDegree;
 
+    // Events:
+    event degreeIssued(address student);
+    event degreeClaimed(address student, uint256 tokenId);
+
+    // Modifiers:
     modifier onlyOwner() {
         if (msg.sender != i_owner) {
             revert UniversityDegree__NotOwner();
@@ -61,6 +66,8 @@ contract UniversityDegree is ERC721URIStorage {
         }
         s_issuedDegrees[student] = true;
         s_studentToScore[student] = score;
+
+        emit degreeIssued(student);
     }
 
     function claimDegree() public returns (uint256) {
@@ -80,6 +87,8 @@ contract UniversityDegree is ERC721URIStorage {
 
         s_issuedDegrees[msg.sender] = false;
         s_studentToDegree[msg.sender] = tokenURI;
+
+        emit degreeClaimed(msg.sender, newItemId);
 
         return newItemId;
     }
