@@ -36,4 +36,27 @@ import { UniversityDegree } from "../../typechain-types";
           expect(txnResponse).to.include(symbol);
         });
       });
+
+      describe("issueDegree(address to)", () => {
+        it("reverts if caller is not the owner", async () => {
+          const accounts = await ethers.getSigners();
+          const notOwner = accounts[1];
+          const notOwnerConnectedContract = await universityDegree.connect(notOwner);
+
+          await expect(
+            notOwnerConnectedContract.issueDegree(accounts[3].address)
+          ).to.be.revertedWithCustomError(universityDegree, "UniversityDegree__NotOwner");
+        });
+
+        it("issues degree", async () => {
+          const accounts = await ethers.getSigners();
+          const student = accounts[1];
+
+          const txnResponse = await universityDegree.issueDegree(student.address);
+          const txnReceipt = await txnResponse.wait(1);
+
+          const isDegreeIssued = await universityDegree.issuedDegrees(student.address);
+          expect(isDegreeIssued).to.be.true;
+        });
+      });
     });
