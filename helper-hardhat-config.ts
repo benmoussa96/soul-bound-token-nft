@@ -1,7 +1,6 @@
 export interface NetworkConfigItem {
   name?: string;
   blockConfirmations?: number;
-  lockName?: string;
 }
 
 export interface NetworkConfigInfo {
@@ -16,7 +15,6 @@ export const networkConfig: NetworkConfigInfo = {
   5: {
     name: "goerli",
     blockConfirmations: 6,
-    lockName: "Lock on Goerli",
   },
   137: {
     name: "polygon",
