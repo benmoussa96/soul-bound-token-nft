@@ -52,7 +52,7 @@ contract UniversityDegree is ERC721URIStorage {
         string memory degreeImage,
         string memory degreeMajor,
         string memory degreeType
-    ) ERC721("SoulBoundToken", "SBT") {
+    ) ERC721("UniversityDegreeSoulBoundToken", "UDSBT") {
         i_owner = msg.sender;
         s_degreeMaxScore = degreeMaxScore;
         s_degreeImage = degreeImage;
