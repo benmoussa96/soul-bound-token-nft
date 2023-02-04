@@ -11,8 +11,8 @@ The contract is deployed to the Goerli Testnet:
 
 This contract is used to award degrees to students who graduated. This is done in two steps:
 
-1. Only the owner of the contract can issue degrees with the function `issueDegree(address student, uint256 score)`
-2. Then, the student can claim the degree with the function `claimDegree()`
+1. Only the owner of the contract can issue degrees with the function `issueDegree(address student, uint256 score)` (Usage: ~ 70,000 Gas)
+2. Then, the student can claim the degree with the function `claimDegree()` (Usage: ~ 1,150,000 Gas)
 
 This type of token is called a Soul Bound Token because once the token has been claimed by the student, it can't be transfered to anyone else.
 
