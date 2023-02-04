@@ -32,8 +32,8 @@ contract UniversityDegree is ERC721URIStorage {
     string internal s_degreeMajor; // Major of the degree
     string internal s_degreeType; // Type of the degree (bachelor, masters, etc)
     mapping(address => bool) internal s_issuedDegrees;
-    mapping(address => uint256) internal s_personToScore;
-    mapping(address => string) internal s_personToDegree;
+    mapping(address => uint256) internal s_studentToScore;
+    mapping(address => string) internal s_studentToDegree;
 
     modifier onlyOwner() {
         if (msg.sender != i_owner) {
@@ -55,12 +55,12 @@ contract UniversityDegree is ERC721URIStorage {
         s_degreeType = degreeType;
     }
 
-    function issueDegree(address to, uint256 score) external onlyOwner {
+    function issueDegree(address student, uint256 score) external onlyOwner {
         if (score > s_degreeMaxScore) {
             revert UniversityDegree__ScoreTooHigh();
         }
-        s_issuedDegrees[to] = true;
-        s_personToScore[to] = score;
+        s_issuedDegrees[student] = true;
+        s_studentToScore[student] = score;
     }
 
     function claimDegree() public returns (uint256) {
@@ -74,12 +74,12 @@ contract UniversityDegree is ERC721URIStorage {
 
         string memory tokenURI = generateTokenURI(
             newItemId,
-            s_personToScore[msg.sender]
+            s_studentToScore[msg.sender]
         );
         _setTokenURI(newItemId, tokenURI);
 
         s_issuedDegrees[msg.sender] = false;
-        s_personToDegree[msg.sender] = tokenURI;
+        s_studentToDegree[msg.sender] = tokenURI;
 
         return newItemId;
     }
@@ -122,13 +122,13 @@ contract UniversityDegree is ERC721URIStorage {
     function checkDegreeOfStudent(
         address student
     ) external view returns (string memory) {
-        return s_personToDegree[student];
+        return s_studentToDegree[student];
     }
 
     function checkScoreOfStudent(
         address student
     ) public view returns (uint256) {
-        return s_personToScore[student];
+        return s_studentToScore[student];
     }
 
     function isStudentDegreeIssued(
