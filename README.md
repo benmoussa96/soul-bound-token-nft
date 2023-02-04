@@ -2,7 +2,9 @@
 
 ## Description
 
-This repo contains a smart contract (`contracts/UniversityDegree.sol`) that represents a university degree as a Soul Bound NFT Token. It is deployed to the Goerli Testnet at: [0x34ea8f5eba2877971CE4370Caee7CDD188762B43](https://goerli.etherscan.io/address/0x34ea8f5eba2877971CE4370Caee7CDD188762B43)
+This repo contains a smart contract (`contracts/UniversityDegree.sol`) that represents a university degree as a Soul Bound NFT Token.
+
+It is deployed to the Goerli Testnet at: [0x34ea8f5eba2877971CE4370Caee7CDD188762B43](https://goerli.etherscan.io/address/0x34ea8f5eba2877971CE4370Caee7CDD188762B43)
 
 This contract is used to award degrees to students who graduated. This is done in two steps:
 
