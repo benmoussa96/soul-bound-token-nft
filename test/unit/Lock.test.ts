@@ -117,7 +117,7 @@ import { UniversityDegree } from "../../typechain-types";
             const txnReceipt = await txnResponse.wait(1);
           });
 
-          it("mints the NFT, claims the degree to the student and emits 'degreeClaimed()' event", async () => {
+          it("mints the NFT, claims it to the student and emits 'degreeClaimed()' event", async () => {
             await new Promise<void>(async (resolve, reject) => {
               studentConnectedContract.once("degreeClaimed", async () => {
                 try {
@@ -126,9 +126,14 @@ import { UniversityDegree } from "../../typechain-types";
                   const studentDegree = await studentConnectedContract.checkDegreeOfStudent(
                     student.address
                   );
+                  const isDegreeIssued = await studentConnectedContract.isStudentDegreeIssued(
+                    student.address
+                  );
+
+                  expect(tokenCounter[0]).to.equal(1);
                   expect(tokenUri.toString().includes("data:application/json;base64")).to.be.true;
                   expect(studentDegree).to.equal(tokenUri);
-                  expect(tokenCounter[0]).to.equal(1);
+                  expect(isDegreeIssued).to.be.false;
                   resolve();
                 } catch (error) {
                   reject(error);
