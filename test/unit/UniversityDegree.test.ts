@@ -31,6 +31,14 @@ import { UniversityDegree } from "../../typechain-types";
       });
 
       describe("constructor()", () => {
+        it("is a soul bound token and cannot be transfered", async () => {
+          expect(universityDegree.interface.functions).to.not.include.keys([
+            "transferFrom(address,address,uint256)",
+            "safeTransferFrom(address,address,uint256)",
+            "safeTransferFrom(address,address,uint256,bytes)",
+          ]);
+        });
+
         it("sets the `owner` addresses correctly", async () => {
           const txnResponse = await universityDegree.getOwner();
           expect(txnResponse).to.equal(deployer.address);
@@ -143,14 +151,6 @@ import { UniversityDegree } from "../../typechain-types";
               const txnResponse = await studentConnectedContract.claimDegree();
               const txnReceipt = await txnResponse.wait(1);
             });
-          });
-
-          it("cannot be transfered", async () => {
-            expect(universityDegree.interface.functions).to.not.include.keys([
-              "transferFrom(address,address,uint256)",
-              "safeTransferFrom(address,address,uint256)",
-              "safeTransferFrom(address,address,uint256,bytes)",
-            ]);
           });
         });
       });
