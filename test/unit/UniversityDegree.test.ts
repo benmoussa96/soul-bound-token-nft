@@ -71,7 +71,7 @@ import { UniversityDegree } from "../../typechain-types";
           ).to.be.revertedWithCustomError(universityDegree, "UniversityDegree__NotOwner");
         });
 
-        it("reverts with 'ScoreTooHigh' when the `score` is more than the `maxScore`", async () => {
+        it("reverts with 'ScoreTooHigh' error when `score` is greater than `maxScore`", async () => {
           await expect(
             universityDegree.issueDegree(student.address, maxScore + 1)
           ).to.be.revertedWithCustomError(universityDegree, "UniversityDegree__ScoreTooHigh");
