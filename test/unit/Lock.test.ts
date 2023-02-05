@@ -45,10 +45,25 @@ import { UniversityDegree } from "../../typechain-types";
           const txnResponse = await universityDegree.symbol();
           expect(txnResponse).to.include(symbol);
         });
+
+        it("sets the `image` correctly", async () => {
+          const txnResponse = await universityDegree.getDegreeImage();
+          expect(txnResponse).to.include(image);
+        });
+
+        it("sets the `major` correctly", async () => {
+          const txnResponse = await universityDegree.getDegreeMajor();
+          expect(txnResponse).to.include(major);
+        });
+
+        it("sets the `type` correctly", async () => {
+          const txnResponse = await universityDegree.getDegreeType();
+          expect(txnResponse).to.include(type);
+        });
       });
 
       describe("issueDegree(address to)", () => {
-        it("reverts with 'NotOwner' error if caller is not the owner", async () => {
+        it("reverts with 'NotOwner' error when caller is not the owner", async () => {
           const notOwnerConnectedContract = await universityDegree.connect(student);
 
           await expect(
@@ -56,13 +71,13 @@ import { UniversityDegree } from "../../typechain-types";
           ).to.be.revertedWithCustomError(universityDegree, "UniversityDegree__NotOwner");
         });
 
-        it("reverts if the `score` is more than the `maxScore`", async () => {
+        it("reverts with 'ScoreTooHigh' when the `score` is more than the `maxScore`", async () => {
           await expect(
             universityDegree.issueDegree(student.address, maxScore + 1)
           ).to.be.revertedWithCustomError(universityDegree, "UniversityDegree__ScoreTooHigh");
         });
 
-        it("emits event", async () => {
+        it("emits 'degreeIssued()' event", async () => {
           await expect(universityDegree.issueDegree(student.address, score)).to.emit(
             universityDegree,
             "degreeIssued"
@@ -102,7 +117,7 @@ import { UniversityDegree } from "../../typechain-types";
             const txnReceipt = await txnResponse.wait(1);
           });
 
-          it("mints the NFT and claims the degree to the student", async () => {
+          it("mints the NFT, claims the degree to the student and emits 'degreeClaimed()' event", async () => {
             await new Promise<void>(async (resolve, reject) => {
               studentConnectedContract.once("degreeClaimed", async () => {
                 try {
