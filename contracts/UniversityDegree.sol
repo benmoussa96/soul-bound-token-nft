@@ -150,6 +150,10 @@ contract UniversityDegree is ERC721URIStorage {
         return i_owner;
     }
 
+    function getTokenCounter() public view returns (Counters.Counter memory) {
+        return _tokenIds;
+    }
+
     function getDegreeMaxScore() public view returns (uint256) {
         return s_degreeMaxScore;
     }
