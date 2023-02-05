@@ -144,6 +144,14 @@ import { UniversityDegree } from "../../typechain-types";
               const txnReceipt = await txnResponse.wait(1);
             });
           });
+
+          it("cannot be transfered", async () => {
+            expect(universityDegree.interface.functions).to.not.include.keys([
+              "transferFrom(address,address,uint256)",
+              "safeTransferFrom(address,address,uint256)",
+              "safeTransferFrom(address,address,uint256,bytes)",
+            ]);
+          });
         });
       });
     });
