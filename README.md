@@ -1,4 +1,4 @@
-# University Degree Soul Bound Token (100% On-Chain NFT)
+# University Degree Soul Bound Token (On-Chain NFT)
 
 ## Description
 
