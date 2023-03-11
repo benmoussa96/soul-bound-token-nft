@@ -7,7 +7,7 @@ This repo contains a smart contract (`contracts/UniversityDegree.sol`) that repr
 The contract is deployed to the Goerli Testnet:
 
 1. Etherscan: [0xE458995851B9Dd0D1C06f94333e06655Da5D736C](https://goerli.etherscan.io/address/0xE458995851B9Dd0D1C06f94333e06655Da5D736C)
-2. OpenSea: [UniversityDegreeSoulBoundToken](https://testnets.opensea.io/collection/universitydegreesoulboundtoken)
+2. OpenSea: [UniversityDegreeSoulBoundToken](https://testnets.opensea.io/assets/goerli/0xe458995851b9dd0d1c06f94333e06655da5d736c/1)
 
 This contract is used to award degrees to students who graduated. This is done in two steps:
 
