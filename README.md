@@ -14,7 +14,7 @@ This contract is used to award degrees to students who graduated. This is done i
 1. Only the owner of the contract can issue degrees with the function `issueDegree(address student, uint256 score)` (Usage: ~ 70,000 Gas)
 2. Then, only the the student to which that degree was issued can claim it with the function `claimDegree()`. This mints the token and generates the metadata URI 100% on-chain. (Usage: ~ 1,150,000 Gas)
 
-> :bangbang: **This type of token is called a Soul Bound Token because once the token has been claimed by the student, it can't be transfered to anyone else.**
+> :bangbang: **This type of NFT is called a Soul Bound Token because once the token has been claimed by the student, it can't be transfered to anyone else.**
 
 ### Built with
 
