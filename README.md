@@ -1,4 +1,4 @@
-# University Degree Soul Bound Token (100% On-Chain NFT)
+# University Degree Soul Bound Token (On-Chain NFT)
 
 ## Description
 
@@ -7,14 +7,14 @@ This repo contains a smart contract (`contracts/UniversityDegree.sol`) that repr
 The contract is deployed to the Goerli Testnet:
 
 1. Etherscan: [0xE458995851B9Dd0D1C06f94333e06655Da5D736C](https://goerli.etherscan.io/address/0xE458995851B9Dd0D1C06f94333e06655Da5D736C)
-2. OpenSea: [UniversityDegreeSoulBoundToken](https://testnets.opensea.io/collection/universitydegreesoulboundtoken)
+2. OpenSea: [UniversityDegreeSoulBoundToken](https://testnets.opensea.io/assets/goerli/0xe458995851b9dd0d1c06f94333e06655da5d736c/1)
 
 This contract is used to award degrees to students who graduated. This is done in two steps:
 
 1. Only the owner of the contract can issue degrees with the function `issueDegree(address student, uint256 score)` (Usage: ~ 70,000 Gas)
 2. Then, only the the student to which that degree was issued can claim it with the function `claimDegree()`. This mints the token and generates the metadata URI 100% on-chain. (Usage: ~ 1,150,000 Gas)
 
-> :bangbang: **This type of token is called a Soul Bound Token because once the token has been claimed by the student, it can't be transfered to anyone else.**
+> :bangbang: **This type of NFT is called a Soul Bound Token because once the token has been claimed by the student, it can't be transfered to anyone else.**
 
 ### Built with
 
