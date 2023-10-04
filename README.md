@@ -18,13 +18,13 @@ This contract is used to award degrees to students who graduated. This is done i
 
 ### Built with
 
-- TypeScript
 - Solidity
-- Yarn
-- Node.js (14.0.0)
-- Hardhat
-- Ethers
 - OpenZeppelin
+- Hardhat
+- TypeScript
+- Ethers
+- Yarn
+- Node.js
 
 ## Getting Started
 
